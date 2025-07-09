@@ -10,6 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@duckdb/duckdb-wasm": "^1.29.1-dev132.0",
     "next": "15.3.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
@@ -24,6 +25,7 @@
     "@types/react-dom": "^19",
     "jest": "^30.0.4",
     "jest-environment-jsdom": "^30.0.4",
+    "jest-fixed-jsdom": "^0.0.9",
     "ts-node": "^10.9.2",
     "typescript": "^5"
   }
