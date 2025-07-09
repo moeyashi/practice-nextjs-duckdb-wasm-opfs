@@ -1,14 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import Page from "../../src/app/page";
 
-jest.mock("../../src/feature/pokemon/hook", () => ({
-	usePokemonList: jest.fn(() => ({
-		pokemonList: [{ name: "pikachu", url: "http://pokemon.test/1" }],
-		loading: false,
-		error: "",
-	})),
-}));
-
+// ページテストではDuckDBは使えないので、APIのデータが使われる。
 describe("Page", () => {
 	it("renders a heading", async () => {
 		render(<Page />);
@@ -21,9 +14,12 @@ describe("Page", () => {
 	it("renders a list of pokemon", async () => {
 		render(<Page />);
 
-		const listItem = await screen.findByText("pikachu");
+		const listItem = await screen.findByText("test");
 
 		expect(listItem).toBeInTheDocument();
-		expect(listItem).toHaveAttribute("href", "http://pokemon.test/1");
+		expect(listItem).toHaveAttribute(
+			"href",
+			"https://pokeapi.co/api/v2/pokemon/1/",
+		);
 	});
 });
